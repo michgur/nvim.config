@@ -36,10 +36,11 @@ return {
         capabilities = capabilities,
       })
 
-      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {})
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to [D]eclaration" })
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to [d]efinition" })
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Re[n]ame symbol" })
+      vim.keymap.set("n", "cd", vim.lsp.buf.rename, { desc = "Change [d]efinition (i.e. rename symbol)" })
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code [a]ctions" })
     end,
   },
