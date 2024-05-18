@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,12 +13,10 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("vim-options")
-require("vim-motions")
-require("lazy").setup("plugins")
-
--- TODO:
--- - [ ] replace mini.surround with nvim-surround
--- - [ ] add nvim-subsitute
--- - [ ] lualine - show python venv
--- - [ ] add trouble
+require("options")
+require("mappings")
+require("lazy").setup({ import = "plugins" }, {
+  change_detection = {
+    notify = false,
+  },
+})

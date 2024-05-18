@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.breakindent = true
 vim.opt.undofile = true

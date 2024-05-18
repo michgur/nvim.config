@@ -1,5 +1,4 @@
 -- terminal mode navigation
--- vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w><C-h>", {})
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w><C-j>", {})
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w><C-k>", {})
@@ -11,6 +10,8 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- fix go to file start
+vim.keymap.set({ "n", "x" }, "gg", "gg0", {})
 local function multiline_dup_up()
   local s = vim.fn.getpos("v")
   local e = vim.fn.getpos(".")
@@ -46,6 +47,18 @@ vim.keymap.set("n", "<M-J>", "<cmd>t .<CR>", {})
 vim.keymap.set("v", "<M-J>", multiline_dup_down, {})
 vim.keymap.set("n", "<M-K>", "<cmd>t .-1<CR>", {})
 vim.keymap.set("v", "<M-K>", multiline_dup_up, {})
+
+local function to_visual_line_mode()
+  local s = vim.fn.getpos("v")
+  local e = vim.fn.getpos(".")
+
+  vim.cmd("normal! :noh")
+  vim.api.nvim_win_set_cursor(0, { s[2], 0 })
+  vim.cmd("normal V")
+  vim.api.nvim_win_set_cursor(0, { e[2], 0 })
+end
+-- go to Visual Line mode
+vim.keymap.set("v", "gV", to_visual_line_mode, { desc = "Go to [V]isual Line mode" })
 
 -- add empty lines
 vim.keymap.set("n", "\\", "o<Esc>k", {})
