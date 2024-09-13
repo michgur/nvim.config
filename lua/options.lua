@@ -18,6 +18,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.laststatus = 3
+vim.opt.termsync = false
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<C-z>", "<cmd>bd<CR>")
@@ -32,5 +33,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank()
   end,
 })
-
-vim.keymap.set("n", "<leader>do", "<cmd>!open % -a arc<CR>", { desc = "[o]pen file in browser" })

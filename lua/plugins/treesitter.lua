@@ -30,10 +30,27 @@ return {
             node_decremental = "V",
           },
         },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+              ["ae"] = "@parameter.outer",
+              ["ie"] = "@parameter.inner",
+            },
+          },
+        },
       })
     end,
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
 }

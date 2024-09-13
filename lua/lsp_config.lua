@@ -70,6 +70,18 @@ mason_lspconfig.setup({
     ["jdtls"] = function()
       -- do nothing
     end,
+    ["zls"] = function()
+      lspconfig.zls.setup({
+        on_attach = on_attach,
+        capabilities = capabilities,
+        settings = {
+          zls = {
+            enable_build_on_save = true,
+            build_on_save_step = "check",
+          },
+        },
+      })
+    end,
   },
 })
 

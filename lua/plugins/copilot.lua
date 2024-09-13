@@ -15,6 +15,7 @@ return {
     "zbirenbaum/copilot-cmp",
     config = function()
       require("copilot_cmp").setup()
+      vim.cmd("Copilot disable")
     end,
   },
   { "AndreM222/copilot-lualine" },

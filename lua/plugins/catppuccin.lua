@@ -12,32 +12,31 @@ return {
         },
         telescope = {
           enabled = true,
-          style = "nvchad",
         },
       },
       highlight_overrides = {
-        macchiato = function(colors)
+        all = function(colors)
           return {
             TelescopeMatching = { fg = colors.pink },
             TelescopeSelectionCaret = { fg = colors.pink },
             TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
-            TelescopePromptPrefix = { bg = colors.base, fg = colors.pink },
-            TelescopePromptNormal = { bg = colors.base },
-            TelescopePromptBorder = { bg = colors.base, fg = colors.base },
+            TelescopePromptPrefix = { bg = colors.mantle, fg = colors.pink },
+            TelescopePromptNormal = { bg = colors.mantle },
+            TelescopePromptBorder = { bg = colors.mantle, fg = colors.mantle },
             TelescopePromptTitle = { bg = colors.pink, fg = colors.mantle },
-            TelescopePreviewNormal = { bg = colors.mantle },
-            TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopePreviewNormal = { bg = colors.crust },
+            TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
             TelescopePreviewTitle = { bg = colors.green, fg = colors.mantle },
-            TelescopeResultsNormal = { bg = colors.base },
-            TelescopeResultsBorder = { bg = colors.base, fg = colors.base },
-            TelescopeResultsTitle = { fg = colors.base },
+            TelescopeResultsNormal = { bg = colors.mantle },
+            TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
+            TelescopeResultsTitle = { fg = colors.mantle },
 
-            NavbuddyNormalFloat = { fg = colors.text, bg = colors.base },
-            CmpNormal = { fg = colors.text, bg = colors.base },
+            NavicNormal = { bg = colors.crust },
+            NavbuddyNormalFloat = { fg = colors.text, bg = colors.mantle },
+            CmpNormal = { fg = colors.text, bg = colors.mantle },
           }
         end,
       },
     })
-    vim.cmd.colorscheme("catppuccin-macchiato")
   end,
 }

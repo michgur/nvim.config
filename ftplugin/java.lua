@@ -141,9 +141,7 @@ local function format_on_save_acmd(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = augroup,
       buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format()
-      end,
+      callback = vim.lsp.buf.format,
     })
   end
 end
@@ -173,6 +171,7 @@ config["on_attach"] = function(client, bufnr)
     vim.keymap.set("x", "<leader>ca", vim.lsp.buf.code_action, { buffer = 0, desc = "Code [a]ctions" })
   end
 
+  vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { buffer = 0, desc = "Format [f]ile" })
   format_on_save_acmd(client, bufnr)
 end
 

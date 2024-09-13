@@ -12,6 +12,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 
 -- fix go to file start
 vim.keymap.set({ "n", "x" }, "gg", "gg0", {})
+
 local function multiline_dup_up()
   local s = vim.fn.getpos("v")
   local e = vim.fn.getpos(".")
@@ -22,9 +23,9 @@ local function multiline_dup_up()
   vim.cmd(sp .. "," .. ep .. "t " .. (sp - 1))
 
   vim.cmd("normal! :noh")
-  vim.api.nvim_win_set_cursor(0, { s[2], s[1] })
+  vim.api.nvim_win_set_cursor(0, { s[2], s[3] })
   vim.cmd("normal V")
-  vim.api.nvim_win_set_cursor(0, { e[2], e[1] })
+  vim.api.nvim_win_set_cursor(0, { e[2], e[3] })
 end
 
 local function multiline_dup_down()
@@ -61,5 +62,11 @@ end
 vim.keymap.set("v", "gV", to_visual_line_mode, { desc = "Go to [V]isual Line mode" })
 
 -- add empty lines
-vim.keymap.set("n", "\\", "o<Esc>k", {})
-vim.keymap.set("n", "|", "O<Esc>j", {})
+vim.keymap.set("n", "<M-O>", "O<Esc>j", {})
+vim.keymap.set("n", "<M-o>", "o<Esc>k", {})
+
+-- navigation
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {})
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {})
+vim.keymap.set("n", "<C-o>", "<C-o>zz", {})
+vim.keymap.set("n", "<C-i>", "<C-i>zz", {})

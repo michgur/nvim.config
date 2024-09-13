@@ -31,6 +31,7 @@ return {
             prompt_position = "top",
             center = {
               mirror = true,
+              preview_cutoff = 0,
               width = { 0.9, max = 100 },
             },
             cursor = {
@@ -49,26 +50,8 @@ return {
               layout_strategy = "cursor",
             }),
           },
-          ["project"] = {
-            on_project_selected = function(prompt_bufnr)
-              require("telescope._extensions.project.actions").change_working_directory(
-                prompt_bufnr,
-                false
-              )
-              vim.cmd(":Oil " .. vim.fn.getcwd())
-            end,
-          },
         },
       })
-    end,
-  },
-  {
-    "nvim-telescope/telescope-project.nvim",
-    config = function()
-      require("telescope").load_extension("project")
-      vim.keymap.set("n", "<leader>sp", function()
-        require("telescope").extensions.project.project({ display = "full" })
-      end, { desc = "Search [p]rojects" })
     end,
   },
   {
